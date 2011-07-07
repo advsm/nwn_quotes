@@ -1,0 +1,14 @@
+	<div class='quote'>
+		<div class='title'>
+			<%= link_to '№ ' + @quote.id.to_s, quote %> approved by anti, <%= @quote.created_at.strftime("%d.%m.%Y %H:%M") %>
+		</div>
+
+		<div class='content'>
+			<%= @quote.content %>
+		</div>
+	</div>
+
+    	<!-- <td><%= link_to 'Edit', edit_quote_path(@quote) %></td>
+	<td><%= link_to 'Destroy', @quote, :confirm => 'Are you sure?', :method => :delete %></td> -->
+
+<!-- <%= link_to 'New Quote', new_quote_path %> -->

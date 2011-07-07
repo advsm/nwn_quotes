@@ -1,0 +1,9 @@
+#notice
+  = notice
+  .quote
+    .title
+      = link_to '№ ' + @quote.id.to_s, @quote
+      approved by anti,  
+      = @quote.created_at.strftime("%d.%m.%Y %H:%M")
+    .content= @quote.content
+
