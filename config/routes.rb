@@ -1,4 +1,8 @@
 Wheel::Application.routes.draw do
+  devise_for :users do
+    get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session, :via => "delete"
+  end
+
   resources :quotes
 
   # The priority is based upon order of creation:

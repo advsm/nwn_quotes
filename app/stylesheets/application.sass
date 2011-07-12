@@ -1,3 +1,78 @@
-#content
-  color: #ff0000
+@import compass/reset.scss
+@import compass/layout.scss
+
+@import blueprint
+
+
++sticky-footer(50px, "#wrap", "#wrap_footer", "#footer")
+
+#container
+  +container
+  #left, #right
+    +column(2)
+  #content
+    +column(24)
+
+html, body
+  margin: 0px
+  padding: 0px
+  background: #ffffff
+  color: #000000
+  font-family: Tahoma, Geneva, Helvetica, Arial, Sans-serif
+  font-size: 12px
+
+#header 
+  padding-top: 8px
+  padding-bottom: 8px
+  text-align: center
+  h1
+    padding: 0px
+    margin: 0px
+    font-size: 16px
+    font-weight: bold
+  p
+    padding: 6px
+
+.menu
+  padding-top: 8px
+  text-align: center
+  clear:both
+
+.quote
+  padding-top: 5px
+  padding-bottom: 5px
+
+.quote_content
+  padding: 8px
+  border-style: dotted
+  border-width: 1px
+  background-color: #f5f5f5
+
+
+a:hover
+  text-decoration: underline
+  color: red
+
+a
+  text-decoration: none
+  color: black
+
+#redirect
+  color: blue
+
+#search
+  padding: 20px
+  text-align: center
+
+#add
+  padding: 20px
+  text-align: center
+
+#auth
+  padding: 20px
+  text-align: center
+
+textarea 
+  width: 60%
+
 

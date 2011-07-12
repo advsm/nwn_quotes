@@ -1,9 +1,18 @@
 - @quotes.each do |quote|
   .quote
-    .title
+    .quote_title
       = link_to '№ ' + quote.id.to_s, quote 
-      approved by anti, 
+      approved by
+      - if quote.user
+        = quote.user.email
+      - else 
+        Anonimous
       - if quote.created_at
         = quote.created_at.strftime("%d.%m.%Y %H:%M")
-    .content= quote.content
+      - if user_signed_in?
+        , 
+        = link_to 'Edit', edit_quote_path(quote)
+        , 
+        = link_to 'Delete', quote, :config => "For real ?", :method => :delete
+    .quote_content= quote.content
 
