@@ -3,7 +3,13 @@ Wheel::Application.routes.draw do
     get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session, :via => "delete"
   end
 
-  resources :quotes
+  resources :quotes do
+    collection do
+      get :browse
+      get :random
+      get :search
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

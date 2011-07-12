@@ -9,6 +9,12 @@ class QuotesController < ApplicationController
 
   def random
   end
+  
+  def search
+  end
+  
+  def browse
+  end
 
 
   def create
