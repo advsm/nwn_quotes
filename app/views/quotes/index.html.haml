@@ -1,18 +1,28 @@
 - @quotes.each do |quote|
   .quote
     .quote_title
-      = link_to '№ ' + quote.id.to_s, quote 
-      approved by
+      - identifier = quote.id.to_s
+      - if quote.ident
+        - identifier = quote.ident.to_s
+
+      - user = 'none'
       - if quote.user
-        = quote.user.email
-      - else 
-        Anonimous
-      - if quote.created_at
-        = quote.created_at.strftime("%d.%m.%Y %H:%M")
+        - user = quote.user.email
+
+      - date = 'not yet'
+      - if quote.approved_at
+        - date = quote.approved_at.strftime("%d.%m.%Y %H:%M")
+
+      = link_to '#' + identifier, quote
+      approved by #{user}, #{date}
+
       - if user_signed_in?
-        , 
-        = link_to 'Edit', edit_quote_path(quote)
-        , 
-        = link_to 'Delete', quote, :config => "For real ?", :method => :delete
+        \~~~ 
+        - if !quote.approved_at
+          :plain
+            #{link_to 'approve', quote_approve_path(quote)} ~ 
+        :plain
+          #{link_to 'edit', edit_quote_path(quote)} ~ 
+        = link_to 'delete', quote, :config => "Are you sure?", :method => :delete
     .quote_content= quote.content
 

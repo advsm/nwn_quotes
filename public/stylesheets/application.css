@@ -365,24 +365,12 @@ body a {
 }
 
 /* line 49, ../../app/stylesheets/application.sass */
-#search {
+.box {
   padding: 20px;
   text-align: center;
 }
 
 /* line 53, ../../app/stylesheets/application.sass */
-#add {
-  padding: 20px;
-  text-align: center;
-}
-
-/* line 57, ../../app/stylesheets/application.sass */
-#auth {
-  padding: 20px;
-  text-align: center;
-}
-
-/* line 61, ../../app/stylesheets/application.sass */
-textarea {
+#form textarea {
   width: 60%;
 }

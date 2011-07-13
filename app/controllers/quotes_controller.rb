@@ -16,15 +16,15 @@ class QuotesController < ApplicationController
   def browse
   end
 
-
   def create
-    @quote = Quote.new(params[:quote])
+    @quote = Quote.new
+    @quote.content = params[:quote][:content]
 
-		if @quote.save
-			redirect_to @quote, :notice => 'Quote was successfully created.'
-		else
-			render :action => "new"
-		end
+    if @quote.save
+      redirect_to quotes_path, :notice => 'Thanks, quote accepted'
+    else
+      render :action => "new"
+    end
   end
 
   def show

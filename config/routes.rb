@@ -4,6 +4,7 @@ Wheel::Application.routes.draw do
   end
 
   resources :quotes do
+    get :approve
     collection do
       get :browse
       get :random

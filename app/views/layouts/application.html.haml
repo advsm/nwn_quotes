@@ -16,12 +16,11 @@
       %h1 Цитатник
       %p Все что вы скажете будет вырвано из контекста и искажено © Keil
       -if user_signed_in?
-        #auth
-          %p  
-            = current_user.email + ' | '
-            = link_to "Sign out", destroy_user_session_path
+        .box
+          = current_user.email + ' ~ '
+          = link_to "Sign out", destroy_user_session_path
     #menutop.menu
-      = render 'menu'
+      = render :partial => 'layouts/menu'
     #messages
       .notice= notice
       .alert= alert
@@ -33,5 +32,5 @@
     #wrap_footer
   #footer
     #menubottom.menu
-      = render 'menu'
+      = render :partial => 'layouts/menu'
 
