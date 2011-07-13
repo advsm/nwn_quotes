@@ -1,3 +1,6 @@
+
+require File.join(RAILS_ROOT, '/vendor/mongoid_sequence/sequence.rb')
+
 class Quote 
 	include Mongoid::Document
 	include Mongoid::Timestamps

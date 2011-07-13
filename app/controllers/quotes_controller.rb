@@ -13,11 +13,12 @@ class QuotesController < ApplicationController
   end
 
   def index
+    @quotes = Quote.desc(:created_at)
     if !user_signed_in?
-      @quotes = Quote.asc(:created_at).where(:approved_at.exists => true)
-    else  
-     @quotes = Quote.asc(:created_at).all()
+      @quotes = @quotes.where( :approved_at.exists => true )
     end
+    
+    @quotes = @quotes.all.paginate :page => params[:page], :per_page => 2
   end
 
   def new
@@ -34,9 +35,11 @@ class QuotesController < ApplicationController
   end
 
   def edit
+    redirect_to quotes_path, :alert => 'Not yet implemented'
   end
 
   def update
+    redirect_to quotes_path, :alert => 'Not yet implemented'
   end
 
   def show
@@ -56,12 +59,15 @@ class QuotesController < ApplicationController
   end
 
   def random
+    redirect_to quotes_path, :alert => 'Not yet implemented'
   end
   
   def search
+    redirect_to quotes_path, :alert => 'Not yet implemented'
   end
   
   def browse
+    redirect_to quotes_path, :alert => 'Not yet implemented'
   end
 
 end
