@@ -8,12 +8,16 @@ class QuotesController < ApplicationController
     elsif params[:id]
       @quote = Quote.find(params[:id])
     else
-      @qoute = Quote.new
+      @quote = Quote.new
     end
   end
 
   def index
-    @quotes = Quote.all()
+    if !user_signed_in?
+      @quotes = Quote.asc(:created_at).where(:approved_at.exists => true)
+    else  
+     @quotes = Quote.asc(:created_at).all()
+    end
   end
 
   def new
@@ -40,6 +44,7 @@ class QuotesController < ApplicationController
 
   def destroy
     @quote.delete
+    redirect_to quotes_path, :alert => 'Quote was deleted'
   end
 
   def approve
