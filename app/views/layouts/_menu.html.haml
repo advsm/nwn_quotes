@@ -1,15 +1,7 @@
+:plain
+  [ #{link_to 'last', quotes_path} ]
+  [ #{link_to "random", random_quotes_path} ]
+  [ #{link_to "browse", browse_quotes_path} ]
+  [ #{link_to 'add', new_quote_path} ]
+  [ #{link_to "search", search_quotes_path} ]
 
-%a
-  [ 
-  = link_to 'last', quotes_path
-  ]
-
--#%a= link_to "random", :controller => "quotes", :action => "random"
--#%a= link_to "browse", :controller => "quotes", :action => "browse"
-
-%a
-  [ 
-  = link_to 'add', new_quote_path
-  ]
-
--#%a= link_to "search", :controller => "search"
