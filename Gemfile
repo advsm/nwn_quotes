@@ -13,6 +13,12 @@ gem "will_paginate", "~> 3.0.pre2"
 
 gem "nokogiri"
 
+gem "unicorn"
+group :development do
+  gem "capistrano"
+end
+
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
