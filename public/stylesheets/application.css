@@ -324,48 +324,46 @@ body a {
 /* line 19, ../../app/stylesheets/application.sass */
 #header {
   padding-top: 8px;
-  padding-bottom: 8px;
   text-align: center;
 }
-/* line 23, ../../app/stylesheets/application.sass */
+/* line 22, ../../app/stylesheets/application.sass */
 #header h1 {
   padding: 0px;
   margin: 0px;
   font-size: 16px;
   font-weight: bold;
 }
-/* line 28, ../../app/stylesheets/application.sass */
+/* line 27, ../../app/stylesheets/application.sass */
 #header p {
   padding: 6px;
 }
 
-/* line 31, ../../app/stylesheets/application.sass */
+/* line 30, ../../app/stylesheets/application.sass */
 .menu {
-  padding-top: 8px;
   text-align: center;
 }
 
-/* line 36, ../../app/stylesheets/application.sass */
+/* line 34, ../../app/stylesheets/application.sass */
 #messages {
   padding: 20px;
   text-align: center;
 }
-/* line 39, ../../app/stylesheets/application.sass */
+/* line 37, ../../app/stylesheets/application.sass */
 #messages .notice {
   background-color: #d6ffd6;
 }
-/* line 41, ../../app/stylesheets/application.sass */
+/* line 39, ../../app/stylesheets/application.sass */
 #messages .alert {
   background-color: #ff8a66;
 }
 
-/* line 44, ../../app/stylesheets/application.sass */
+/* line 42, ../../app/stylesheets/application.sass */
 .quote {
   padding-top: 5px;
   padding-bottom: 5px;
 }
 
-/* line 48, ../../app/stylesheets/application.sass */
+/* line 46, ../../app/stylesheets/application.sass */
 .quote_content {
   padding: 8px;
   border-style: dotted;
@@ -373,28 +371,29 @@ body a {
   background-color: #f5f5f5;
 }
 
-/* line 54, ../../app/stylesheets/application.sass */
+/* line 52, ../../app/stylesheets/application.sass */
 #redirect {
   color: blue;
 }
 
-/* line 57, ../../app/stylesheets/application.sass */
+/* line 55, ../../app/stylesheets/application.sass */
 .box {
   padding: 20px;
   text-align: center;
 }
 
-/* line 61, ../../app/stylesheets/application.sass */
+/* line 59, ../../app/stylesheets/application.sass */
 #form textarea {
   width: 60%;
 }
 
-/* line 64, ../../app/stylesheets/application.sass */
+/* line 62, ../../app/stylesheets/application.sass */
 body .pagination {
   padding-top: 10px;
+  margin: 5px;
   text-align: center;
 }
-/* line 67, ../../app/stylesheets/application.sass */
+/* line 66, ../../app/stylesheets/application.sass */
 body .pagination a, body .pagination em {
   padding-left: 10px;
   padding-right: 10px;
@@ -403,16 +402,16 @@ body .pagination a, body .pagination em {
   background-color: #0066cc;
   color: black;
 }
-/* line 74, ../../app/stylesheets/application.sass */
+/* line 73, ../../app/stylesheets/application.sass */
 body .pagination a:hover {
   background-color: #0099ff;
   color: black;
 }
-/* line 77, ../../app/stylesheets/application.sass */
+/* line 76, ../../app/stylesheets/application.sass */
 body .pagination em {
   background-color: #0099ff;
 }
-/* line 80, ../../app/stylesheets/application.sass */
+/* line 79, ../../app/stylesheets/application.sass */
 body .pagination .next_page, body .pagination .previous_page {
   display: none;
 }

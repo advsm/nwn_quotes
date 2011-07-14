@@ -1,14 +1,31 @@
-	<div class='quote'>
-		<div class='title'>
-			<%= link_to '№ ' + @quote.id.to_s, quote %> approved by anti, <%= @quote.created_at.strftime("%d.%m.%Y %H:%M") %>
-		</div>
 
-		<div class='content'>
-			<%= @quote.content %>
-		</div>
-	</div>
+.quote
+  .quote_title
+    - identifier = quote.id.to_s
+    - if quote.ident
+      - identifier = quote.ident.to_s
 
-    	<!-- <td><%= link_to 'Edit', edit_quote_path(@quote) %></td>
-	<td><%= link_to 'Destroy', @quote, :confirm => 'Are you sure?', :method => :delete %></td> -->
+    - user = 'none'
+    - if quote.user
+      - if quote.user.name
+        - user = quote.user.name
+      - else
+        - user = quote.user.email
 
-<!-- <%= link_to 'New Quote', new_quote_path %> -->
+    - date = quote.created_at.strftime("%d.%m.%Y %H:%M")
+    -# date = 'not yet'
+    -# if quote.approved_at
+      -# date = quote.approved_at.strftime("%d.%m.%Y %H:%M")
+
+    = link_to '#' + identifier, quote
+    approved by #{user}, #{date}
+
+    - if user_signed_in?
+      \~~~ 
+      - if !quote.approved_at
+        :plain
+          #{link_to 'approve', quote_approve_path(quote)} ~ 
+      :plain
+        #{link_to 'edit', edit_quote_path(quote)} ~ 
+      = link_to 'delete', quote, :config => "Are you sure?", :method => :delete
+  .quote_content= quote.content

@@ -1,6 +1,6 @@
 class QuotesController < ApplicationController
   before_filter :authenticate_user!, :only => [:destroy, :approve, :edit, :update]
-  before_filter :get_quote, :only => [:new, :create, :edit, :update, :destroy, :approve]
+  before_filter :get_quote, :except => [:index]
 
   def get_quote
     if params[:quote_id]
@@ -36,11 +36,16 @@ class QuotesController < ApplicationController
   end
 
   def edit
-    redirect_to quotes_path, :alert => 'Not yet implemented'
   end
 
   def update
-    redirect_to quotes_path, :alert => 'Not yet implemented'
+    @quote.content = params[:quote][:content]
+
+    if @quote.save
+      redirect_to quotes_path, :notice => 'Quote was edited successfully'
+    else
+      render :action => "edit"
+    end
   end
 
   def show
@@ -66,9 +71,4 @@ class QuotesController < ApplicationController
   def search
     redirect_to quotes_path, :alert => 'Not yet implemented'
   end
-  
-  def browse
-    redirect_to quotes_path, :alert => 'Not yet implemented'
-  end
-
 end
