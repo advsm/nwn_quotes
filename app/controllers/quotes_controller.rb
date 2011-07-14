@@ -19,7 +19,7 @@ class QuotesController < ApplicationController
     end
     
     @quotes = @quotes.all
-    @quotes = @quotes.paginate :page => params[:page], :per_page => 2
+    @quotes = @quotes.paginate :page => params[:page], :per_page => 20
   end
 
   def new
