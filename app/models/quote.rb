@@ -1,5 +1,5 @@
 
-require File.join(RAILS_ROOT, '/vendor/mongoid_sequence/sequence.rb')
+require 'sequence'
 
 class Quote 
 	include Mongoid::Document
