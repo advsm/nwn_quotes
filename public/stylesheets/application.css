@@ -388,3 +388,31 @@ body a {
 #form textarea {
   width: 60%;
 }
+
+/* line 64, ../../app/stylesheets/application.sass */
+body .pagination {
+  padding-top: 10px;
+  text-align: center;
+}
+/* line 67, ../../app/stylesheets/application.sass */
+body .pagination a, body .pagination em {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 3px;
+  padding-top: 3px;
+  background-color: #0066cc;
+  color: black;
+}
+/* line 74, ../../app/stylesheets/application.sass */
+body .pagination a:hover {
+  background-color: #0099ff;
+  color: black;
+}
+/* line 77, ../../app/stylesheets/application.sass */
+body .pagination em {
+  background-color: #0099ff;
+}
+/* line 80, ../../app/stylesheets/application.sass */
+body .pagination .next_page, body .pagination .previous_page {
+  display: none;
+}

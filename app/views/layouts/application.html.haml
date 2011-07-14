@@ -21,13 +21,13 @@
           = link_to "Sign out", destroy_user_session_path
     #menutop.menu
       = render :partial => 'layouts/menu'
-    #messages
-      .notice= notice
-      .alert= alert
+    -if alert || notice
+      #messages
+        .notice= notice
+        .alert= alert
     #container
       #left
       #content
-        = will_paginate @quotes
         = yield
       #right
     #wrap_footer

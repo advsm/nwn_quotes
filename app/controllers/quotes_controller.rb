@@ -15,10 +15,11 @@ class QuotesController < ApplicationController
   def index
     @quotes = Quote.desc(:created_at)
     if !user_signed_in?
-      @quotes = @quotes.where( :approved_at.exists => true )
+      @quotes = @quotes.where :approved_at.exists => true
     end
     
-    @quotes = @quotes.all.paginate :page => params[:page], :per_page => 2
+    @quotes = @quotes.all
+    @quotes = @quotes.paginate :page => params[:page], :per_page => 2
   end
 
   def new
