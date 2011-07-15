@@ -1,22 +1,16 @@
+- identifier = quote.ident.to_s
 
-.quote
+- user = 'none'
+- if quote.user
+  - user = quote.user.name
+
+- date = 'not yet'
+- if quote.approved_at
+  - date = quote.approved_at.strftime("%d.%m.%Y %H:%M")
+      
+%div{:id => identifier}
+%div{:class => "quote"}
   .quote_title
-    - identifier = quote.id.to_s
-    - if quote.ident
-      - identifier = quote.ident.to_s
-
-    - user = 'none'
-    - if quote.user
-      - if quote.user.name
-        - user = quote.user.name
-      - else
-        - user = quote.user.email
-
-    - date = quote.created_at.strftime("%d.%m.%Y %H:%M")
-    -# date = 'not yet'
-    -# if quote.approved_at
-      -# date = quote.approved_at.strftime("%d.%m.%Y %H:%M")
-
     = link_to '#' + identifier, identifier
     approved by #{user}, #{date}
 
@@ -32,4 +26,12 @@
     - content = quote.content.gsub "\n", "<br />"
     :plain
       #{content}
+       
+       
+<script type="text/javascript">
+window.onload = function () {
+VK.init({apiId: 2413588, onlyWidgets: true});
+VK.Widgets.Like(#{identifier}, {type: "mini"}, #{identifier});
+}
+</script>
 
