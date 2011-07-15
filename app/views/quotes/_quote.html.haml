@@ -8,7 +8,6 @@
 - if quote.approved_at
   - date = quote.approved_at.strftime("%d.%m.%Y %H:%M")
       
-%div{:id => identifier}
 %div{:class => "quote"}
   .quote_title
     = link_to '#' + identifier, identifier
@@ -26,12 +25,11 @@
     - content = quote.content.gsub "\n", "<br />"
     :plain
       #{content}
-       
+  .quote_content
+    %div{:id => 'vk_', identifier}
+
        
 <script type="text/javascript">
-window.onload = function () {
-VK.init({apiId: 2413790, onlyWidgets: true});
-VK.Widgets.Like(#{identifier}, {type: "mini"}, #{identifier});
-}
+VK.Widgets.Like('vk_#{identifier}', {type: "mini"}, #{identifier});
 </script>
 
