@@ -71,7 +71,8 @@ end
 # Далее идут правила для перезапуска unicorn. Их стоит просто принять на веру - они работают.
 namespace :deploy do
   task :restart do
-    run "if [ -f #{unicorn_pid} ]; then kill -USR2 `cat #{unicorn_pid}`; else cd #{deploy_to}/current && bundle exec unicorn_rails -c #{unicorn_conf} -E #{rails_env} -D; fi"
+    run "if [ -f #{unicorn_pid} ]; then kill -QUIT `cat #{unicorn_pid}`; fi";
+    run "cd #{deploy_to}/current && bundle exec unicorn_rails -c #{unicorn_conf} -E #{rails_env} -D;"
   end
   task :start do
     run "bundle exec unicorn_rails -c #{unicorn_conf} -E #{rails_env} -D"
