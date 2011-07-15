@@ -10,6 +10,8 @@ Wheel::Application.routes.draw do
       get :search
     end
   end
+  
+  get "/about" => "about#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

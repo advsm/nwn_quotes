@@ -1,6 +1,13 @@
 development:
-  host: localhost
-  database: wheel_development
+#  host: localhost
+#  database: wheel_development
+  host: staff.mongohq.com
+  port: 10054
+  username: root
+  password: MongoDbPassWord
+  database: nwn_production
+
+
 
 test:
   host: localhost

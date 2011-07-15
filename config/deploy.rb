@@ -25,7 +25,7 @@
 # http://beginrescueend.com/integration/capistrano/
 $:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
 require "rvm/capistrano"                               # Load RVM's capistrano plugin.
-set :rvm_ruby_string, 'ruby'                           # Or whatever env you want it to run in.
+set :rvm_ruby_string, '1.9.2'                           # Or whatever env you want it to run in.
 set :rvm_type, :user                                   # Copy the exact line. I really mean :user here
 
 set :default_environment, {
@@ -43,7 +43,8 @@ require 'bundler/capistrano'
 
 set :application, "nwn"
 set :rails_env, "production"
-set :domain, "anti@firstvds"
+set :user, "anti"
+set :domain, "firstvds"
 set :deploy_to, "/vault/production/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
@@ -56,9 +57,10 @@ set :repository,  "git@github.com:advsm/nwn_quotes.git" # Путь до ваше
 set :branch, "master" # Ветка из которой будем тянуть код для деплоя.
 #set :deploy_via, :remote_cache # Указание на то, что стоит хранить кеш репозитария локально и с каждым деплоем лишь подтягивать произведенные изменения. Очень актуально для больших и тяжелых репозитариев.
 
-#role :web, "nwn.name"
-role :app, "62.109.21.110"
+role :web, "firstvds"
+#role :app, "62.109.21.110"
 #role :db,  "nwn.name", :primary => true
+ssh_options[:keys] = %w(~/.ssh/id_rsa)
 
 after 'deploy:update_code', :roles => :app do
   # change mongoid.yml with symlink to shared libraries
