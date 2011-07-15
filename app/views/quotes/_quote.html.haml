@@ -17,7 +17,7 @@
     -# if quote.approved_at
       -# date = quote.approved_at.strftime("%d.%m.%Y %H:%M")
 
-    = link_to '#' + identifier, quote
+    = link_to '#' + identifier, '/quotes/' + identifier
     approved by #{user}, #{date}
 
     - if user_signed_in?
@@ -27,7 +27,7 @@
           #{link_to 'approve', quote_approve_path(quote)} ~ 
       :plain
         #{link_to 'edit', edit_quote_path(quote)} ~ 
-      = link_to 'delete', quote, :config => "Are you sure?", :method => :delete
+      = link_to 'delete', quote, :method => :delete
   .quote_content
     - content = quote.content.gsub "\n", "<br />"
     :plain

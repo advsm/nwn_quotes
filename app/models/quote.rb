@@ -17,6 +17,6 @@ class Quote
 	
 	validates_presence_of :content
 	validates_length_of :content, minimum: 10, maximum: 2000
-	validation_uniqueness_of :ident
+	validates_uniqueness_of :ident
 end
 

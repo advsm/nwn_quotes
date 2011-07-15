@@ -1,6 +1,6 @@
 class QuotesController < ApplicationController
   before_filter :authenticate_user!, :only => [:destroy, :approve, :edit, :update]
-  before_filter :get_quote, :except => [:index]
+  before_filter :get_quote, :except => [:index, :show]
 
   def get_quote
     if params[:quote_id]
@@ -49,6 +49,7 @@ class QuotesController < ApplicationController
   end
 
   def show
+    @quote = Quote.where(ident: params[:id]).first
   end
 
   def destroy
