@@ -26,10 +26,10 @@
     :plain
       #{content}
   .quote_content
-    %div{:id => 'vk_', identifier}
+    %div{:id => identifier}
 
        
 <script type="text/javascript">
-VK.Widgets.Like('vk_#{identifier}', {type: "mini"}, #{identifier});
+VK.Widgets.Like(#{identifier}, {type: "mini"}, #{identifier});
 </script>
 
