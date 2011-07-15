@@ -17,7 +17,7 @@
     -# if quote.approved_at
       -# date = quote.approved_at.strftime("%d.%m.%Y %H:%M")
 
-    = link_to '#' + identifier, '/quotes/' + identifier
+    = link_to '#' + identifier, identifier
     approved by #{user}, #{date}
 
     - if user_signed_in?

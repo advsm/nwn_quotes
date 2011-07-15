@@ -1,6 +1,7 @@
 Wheel::Application.routes.draw do
   devise_for :users do
     get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session, :via => "delete"
+    get "/a" => "devise/sessions#new", :as => :new_user_session
   end
 
   resources :quotes do
@@ -12,6 +13,8 @@ Wheel::Application.routes.draw do
   end
   
   get "/about" => "about#index"
+  match ":id" => "quotes#show", :via => :get, :constraints => { :id => /\d+/ }
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
