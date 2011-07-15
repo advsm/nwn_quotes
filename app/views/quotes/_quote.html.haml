@@ -33,3 +33,9 @@
 VK.Widgets.Like(#{identifier}, {type: "mini"}, #{identifier});
 </script>
 
+- if comments
+  %div{:id => "comments_#{identifier}"}
+    <script type="text/javascript">
+    VK.Widgets.Comments("comments_#{identifier}", {limit: 20, width: "496", attach: "*"}, #{identifier});
+    </script>
+
