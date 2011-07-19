@@ -12,14 +12,24 @@ class QuotesController < ApplicationController
     end
   end
 
-  def index
+  def get_quotes_list(paginate)
     @quotes = Quote.desc(:created_at)
     if !user_signed_in?
       @quotes = @quotes.where :approved_at.exists => true
     end
     
     @quotes = @quotes.all
-    @quotes = @quotes.paginate :page => params[:page], :per_page => 20
+    if paginate
+      @quotes = @quotes.paginate :page => params[:page], :per_page => 20
+    end
+  end
+
+  def index
+    get_quotes_list 1
+  end
+
+  def all
+    get_quotes_list 0
   end
 
   def new
@@ -63,13 +73,5 @@ class QuotesController < ApplicationController
     @quote.save
 
     redirect_to quotes_path, :notice => 'Quote was approved'
-  end
-
-  def random
-    redirect_to quotes_path, :alert => 'Not yet implemented'
-  end
-  
-  def search
-    redirect_to quotes_path, :alert => 'Not yet implemented'
   end
 end
