@@ -1,15 +1,19 @@
-/* DO NOT MODIFY. This file was compiled Thu, 21 Jul 2011 17:32:57 GMT from
+/* DO NOT MODIFY. This file was compiled Thu, 21 Jul 2011 18:38:45 GMT from
  * /vault/development/nwn/app/coffeescripts/application.coffee
  */
 
 (function() {
   jQuery(function() {
-    return $(".rating").each(function() {
+    $(".rating").each(function() {
       var id;
       id = $(this).attr("id");
       return VK.Widgets.Like(id, {
         type: "button"
       }, id);
+    });
+    return VK.Observer.subscribe('widgets.like.liked', function(one, two, three, four, five, six) {
+      alert('Hell');
+      debugger;
     });
   });
   jQuery(function() {

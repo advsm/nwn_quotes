@@ -1,8 +1,13 @@
+
 # Rating initialize for .rating blocks
 jQuery ->
 	$(".rating").each ->
 		id = $(@).attr "id" 
 		VK.Widgets.Like id, type: "button", id
+		
+	VK.Observer.subscribe 'widgets.like.liked', (one, two, three, four, five, six) ->
+		alert 'Hell'
+		debugger
 
 # Comments initialization for .comments block
 jQuery ->
