@@ -26,16 +26,14 @@
     :plain
       #{content}
   .quote_content
-    %div{:id => identifier}
+    -if !defined? vk_off
+      %div{:id => "rating_#{identifier}", :class => 'rating'}
+    - else 
+      %div
+        &nbsp;
+    - if quote.comments_count
+      .comments_count
+        = link_to "#{quote.comments_count} comments", identifier
 
-       
-<script type="text/javascript">
-VK.Widgets.Like(#{identifier}, {type: "mini"}, #{identifier});
-</script>
-
-- if comments
-  %div{:id => "comments_#{identifier}"}
-    <script type="text/javascript">
-    VK.Widgets.Comments("comments_#{identifier}", {limit: 20, width: "496", attach: "*"}, #{identifier});
-    </script>
-
+- if defined? comments
+  %div{:id => "comments_#{identifier}", :class => "comments"}

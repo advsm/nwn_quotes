@@ -25,11 +25,11 @@ class QuotesController < ApplicationController
   end
 
   def index
-    get_quotes_list 1
+    get_quotes_list true
   end
 
   def all
-    get_quotes_list 0
+    get_quotes_list false
   end
 
   def new

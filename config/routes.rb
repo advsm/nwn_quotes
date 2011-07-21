@@ -12,9 +12,13 @@ Wheel::Application.routes.draw do
     end
   end
   
+  get "/all"   => "quotes#all",  :as => "all_quotes"
+  get "/best"  => "quotes#best", :as => "best_quotes"
+  get "/hot"   => "quotes#hot",  :as => "hot_quotes"
   get "/about" => "about#index"
+  post "/vk/comment"
   match ":id" => "quotes#show", :via => :get, :constraints => { :id => /\d+/ }
-  
+  2418982
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

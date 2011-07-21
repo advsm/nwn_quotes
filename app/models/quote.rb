@@ -13,6 +13,7 @@ class Quote
 
 	field :content, type: String
 	field :approved_at, type: DateTime, default: nil
+	field :comments_count
 	belongs_to :user
 	
 	validates_presence_of :content
