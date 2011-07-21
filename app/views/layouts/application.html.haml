@@ -13,7 +13,7 @@
   
   = javascript_include_tag "http://vkontakte.ru/js/api/openapi.js"
   %script
-    VK.init({apiId: 2418997, onlyWidgets: true});
+    VK.init({apiId: #{CONFIG['api_id']}, onlyWidgets: true});
 %body
   #wrap
     #header

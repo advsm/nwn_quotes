@@ -1,0 +1,12 @@
+development:
+  api_id: 2418997
+  secret_token: nBVq9YMWhSmB3vgk2y1N
+
+test:
+  api_id: 2418997 
+  secret_token: nBVq9YMWhSmB3vgk2y1N
+  
+production:
+  api_id: false
+  secret_token: false
+
